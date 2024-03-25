@@ -1,46 +1,136 @@
 "use client";
 
+import Author from "@/components/Author";
+import Post from "@/components/Post";
 import Image from "next/image";
 import Typed from "react-typed";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
+
   return (
     <>
-      <div
-        className={`flex h-[100vh] w-[100vw] flex-row justify-center items-center text-center`}
-      >
+      <div className="aurora-bg1 absolute top-0 left-0 dark:hidden block z-[-2] w-[100vw] h-[100vh]">
+        <img src={`bgs/aurora-light.svg`} />
+      </div>
+      <div className="aurora-bg2 absolute top-0 left-0 dark:block hidden z-[-2] w-[100vw] h-[100vh]">
+        <img src={`bgs/aurora-dark.svg`} />
+      </div>
+      <div>
+        <div className="h-[100vh] block z-[-1] bg-transparent w-[100vw]"></div>
         <div
-          className={`bg-red-100 w-[50%] text-left p-[20px] hidden md:block`}
+          className={`flex h-[100vh] w-[100vw] z-[-1] fixed top-0 left-0 flex-row justify-center items-center text-center`}
         >
-          <h1 className={`md:text-6xl text-2xl font-bold`}>
-            THIS IS MY <br />
-            BLOG HEADLINE
-          </h1>
-          <p className="text-gray-800">This is my science blog</p>
-        </div>
-        <div className={`bg-yellow-100 w-[50%] text-right hidden md:block`}>
-          <Image
-            src={`illustrations/6.svg`}
-            style={{ width: "70%", height: "auto" }}
-            width="700"
-            height="1000"
-          />
-        </div>
-        <div className="block md:hidden">
-          <h1 className={`text-2xl font-bold`}>THIS IS MY BLOG HEADLINE</h1>
-          <p className="text-gray-800">This is my science blog</p>
+          <div className={`w-[50%] z-[-1] text-left p-[20px] hidden md:block`}>
+            <h1 className={`md:text-6xl text-2xl font-bold`}>
+              THIS IS MY <br />
+              BLOG HEADLINE
+            </h1>
+            <p className="text-gray-800">This is my science blog</p>
+          </div>
+          <div className={`w-[50%] z-[-1] text-right hidden md:block`}>
+            <Image
+              src={`illustrations/6.svg`}
+              style={{ width: "70%", height: "auto" }}
+              width="700"
+              height="1000"
+            />
+          </div>
+          <div className="block md:hidden">
+            <h1 className={`text-2xl font-bold`}>THIS IS MY BLOG HEADLINE</h1>
+            <p className="text-gray-800">This is my science blog</p>
+          </div>
         </div>
       </div>
 
-      <div className="overflow-hidden p-[20px] bg-white-100 w-[100vw]">
-        <div
-          className="slide-in-out whitespace-nowrap font-bold text-2xl"
-          style={{
-            animationDuration: "8s",
-            animationIterationCount: "infinite",
-          }}
-        >
-          GET THE LATEST SCIENCE NEWS!
+      <div className="bg-white z-[1]">
+        <div className="overflow-hidden p-[20px] bg-white-100 w-[100vw]">
+          <div
+            className="slide-in-out whitespace-nowrap font-bold text-2xl"
+            style={{
+              animationDuration: "8s",
+              animationIterationCount: "infinite",
+            }}
+          >
+            GET THE LATEST SCIENCE NEWS!
+          </div>
+        </div>
+
+        <div className="flex flex-row px-[10px] w-[100vw]">
+          <div className={`block w-[66%] px-[30px]`}>
+            <div className="flex w-[100%] rounded-md h-[40%] bg-black m-[20px]">
+              {/* Image */}
+            </div>
+            <div className="flex w-[100%] rounded-md h-[20%] bg-blue-100 m-[20px]">
+              {/* Image */}
+            </div>
+          </div>
+          <div className={`flex w-[33%] text-right items-right flex-column`}>
+            <ul className={`text-right`}>
+              <li>Post1</li>
+              <li>Post2</li>
+              <li>Post3</li>
+              <li>Post4</li>
+              <li>Post5</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex flex-row px-[30px]">
+          <Post
+            title="Dummy Post1"
+            excerpt="Some dummy excerpt"
+            date={new Date()}
+          />
+          <Post
+            title="Dummy Post2"
+            excerpt="Some dummy excerpt"
+            date={new Date()}
+          />
+          <Post
+            title="Dummy Post3"
+            excerpt="Some dummy excerpt"
+            date={new Date()}
+          />
+        </div>
+
+        <div>
+          <Author />
+        </div>
+        <div className={`mx-[20px]`}>
+          <Slider {...settings}>
+            <Post
+              title="Dummy Post4"
+              excerpt="Some dummy excerpt"
+              date={new Date()}
+            />
+            <Post
+              title="Dummy Post5"
+              excerpt="Some dummy excerpt"
+              date={new Date()}
+            />
+            <Post
+              title="Dummy Post6"
+              excerpt="Some dummy excerpt"
+              date={new Date()}
+            />
+            <Post
+              title="Dummy Post7"
+              excerpt="Some dummy excerpt"
+              date={new Date()}
+            />
+          </Slider>
         </div>
       </div>
     </>

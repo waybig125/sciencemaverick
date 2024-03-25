@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow-x: hidden;
+}
+
+.aurora-bg1 {
+  img {
+    height: 100vh !important;
+    width: 100vw !important;
+    transform: scale(3);
+  }
+}
+.aurora-bg2 {
+  img {
+    height: 100vh !important;
+    width: 100vw !important;
+    transform: scale(-2);
+  }
+}
+
 @keyframes slide-in-out {
   0% {
     transform: translateX(-100%);
@@ -14,4 +33,9 @@
 .slide-in-out {
   animation-name: slide-in-out;
   animation-timing-function: linear;
+}
+
+.author-box {
+  width: calc(100vw - 100px);
+  align-items: center;
 }
