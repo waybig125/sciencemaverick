@@ -1,15 +1,16 @@
 "use client";
-
 import Image from "next/image";
 
 const Author = () => {
   return (
-    <>
+    <div className={`p-[20px] h-[100vh] flex justify-center items-center`}>
       <div
-        className={`flex author-box flex-row h-[100vh] bg-black rounded-md m-[50px]`}
+        className={`flex author-box flex-row h-[90%] w-[100%] bg-gray-300 dark:bg-black rounded-md m-[50px]`}
       >
         <div className={`p-[50px] flex-1`}>
-          <h2 className="font-medium text-3xl text-white">About the Author</h2>
+          <h2 className="font-medium text-3xl text-black dark:text-white">
+            About the Author
+          </h2>
           <p className="text-gray-700">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
             aliquid optio, consectetur facilis et temporibus enim vitae repellat
@@ -33,7 +34,7 @@ const Author = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Author;
