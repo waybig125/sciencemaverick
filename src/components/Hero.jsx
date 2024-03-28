@@ -19,16 +19,16 @@ const Hero = () => {
 
   return (
     <>
-      <div className="aurora-bg1 absolute top-0 left-0 dark:hidden block z-[-2] w-[100vw] h-[100vh]">
+      <div className="aurora-bg1 fixed top-0 left-0 dark:hidden block z-[-2] w-[100vw] h-[100vh]">
         <img src={`bgs/aurora-light.svg`} />
       </div>
-      <div className="aurora-bg2 absolute top-0 left-0 dark:block hidden z-[-2] w-[100vw] h-[100vh]">
+      <div className="aurora-bg2 fixed top-0 left-0 dark:block hidden z-[-2] w-[100vw] h-[100vh]">
         <img src={`bgs/aurora-dark3.svg`} />
       </div>
-      <div className={`overflow-x-hidden w-[100vw] m-0`}>
-        <div className="h-[100vh] block z-[-1] bg-transparent w-[100vw]"></div>
+      <div className={`overflow-x-hidden w-[100vw] m-0 pt-[100vh]`}>
+        {/* <div className="h-[100vh] block z-[-9] bg-transparent w-[100vw]"></div> */}
         <div
-          className={`flex h-[100vh] w-[100vw] z-[-1] fixed top-0 left-0 flex-row justify-center items-center text-center`}
+          className={`flex h-[100vh] w-[100vw] z-[-1] absolute top-0 left-0 flex-row justify-center items-center text-center`}
         >
           <div
             className={`w-[50%] z-[-1] text-left pl-[120px] hidden md:block`}
@@ -52,7 +52,10 @@ const Hero = () => {
             /> */}
             {/*  */}
             {/* Temporarily Commented out */}
-            {/* <GlobeDemo key={(656658328748937 + Math.random).toString()} /> */}
+            <GlobeDemo
+              key={(656658328748937 + Math.random).toString()}
+              className={`z-[1000] absolute`}
+            />
             {/*  */}
           </div>
           <div className="block md:hidden">
@@ -61,8 +64,8 @@ const Hero = () => {
             </h1>
             <p className="text-primary">This is my science blog</p>
             <Image
-              src={`illustrations/6.svg`}
-              className={`absolute top-[25%] left-[15%] z-[-1] opacity-[0.1]`}
+              src={`illustrations/astronaut.svg`}
+              className={`absolute top-[25%] left-[15%] z-[-1] opacity-[0.5]`}
               style={{ width: "70%", height: "auto" }}
               width="700"
               height="1000"

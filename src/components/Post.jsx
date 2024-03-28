@@ -6,7 +6,7 @@ const Post = ({ title, featuredImage = "", excerpt, date }) => {
       <div className="w-[90%] lg:w-[80%] bg-white dark:bg-black text-black dark:text-white rounded-md m-[5%] lg:m-[30px] pb-[10px] border-solid border-2">
         <div className={`w-[50%] z-[-1] text-right block`}>
           <Image
-            src={`illustrations/6.svg`}
+            src={`illustrations/8.svg`}
             style={{ width: "70%", height: "auto" }}
             width="700"
             height="1000"
