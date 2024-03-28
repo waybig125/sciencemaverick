@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Typed } from "react-typed";
 import { useEffect } from "react";
+import { GlobeDemo } from "./Globe";
 const Hero = () => {
   useEffect(() => {
     const typed = new Typed(".element", {
@@ -41,16 +42,24 @@ const Hero = () => {
             <p className="text-primary">This is my science blog</p>
           </div>
           <div className={`w-[50%] z-[-1] text-right hidden md:block`}>
-            <Image
+            {/* <Image
               src={`illustrations/6.svg`}
               style={{ width: "70%", height: "auto" }}
               width="700"
               height="1000"
-            />
+            /> */}
+            <GlobeDemo key={(656658328748937 + Math.random).toString()} />
           </div>
           <div className="block md:hidden">
             <h1 className={`text-3xl font-bold`}>THIS IS MY BLOG HEADLINE</h1>
             <p className="text-primary">This is my science blog</p>
+            <div
+              className={`fixed top-0 left-0 w-[100vw] h-[100vh] z-[4] flex justify-center items-center`}
+            >
+              <div className={`p-[30px]`}>
+                <GlobeDemo key={(2172361784672386 + Math.random).toString()} />
+              </div>
+            </div>
           </div>
         </div>
       </div>

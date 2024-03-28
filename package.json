@@ -11,6 +11,8 @@
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-slot": "^1.0.2",
+    "@react-three/drei": "^9.102.6",
+    "@react-three/fiber": "^8.16.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "eslint-plugin-react": "^7.34.1",
@@ -27,6 +29,8 @@
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.162.0",
+    "three-globe": "^2.31.0",
     "yarn": "^1.22.22"
   },
   "devDependencies": {
