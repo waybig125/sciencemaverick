@@ -6,7 +6,33 @@ import { GlobeDemo } from "./Globe";
 const Hero = () => {
   useEffect(() => {
     const typed = new Typed(".element", {
-      strings: ["First sentence.", "Second sentence."],
+      strings: [
+        "Black Holes",
+        "Neutron Stars",
+        "Biology",
+        "Astronomy",
+        "Physics",
+        "Facts",
+      ],
+      typeSpeed: 100,
+      backSpeed: 140,
+      loop: true,
+    });
+
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+  useEffect(() => {
+    const typed = new Typed(".element2", {
+      strings: [
+        "Black Holes",
+        "Neutron Stars",
+        "Biology",
+        "Astronomy",
+        "Physics",
+        "Facts",
+      ],
       typeSpeed: 100,
       backSpeed: 140,
       loop: true,
@@ -34,14 +60,12 @@ const Hero = () => {
             className={`w-[50%] z-[-1] text-left pl-[120px] hidden md:block`}
           >
             <h1 className={`md:text-6xl text-2xl font-bold overflow-x-visible`}>
-              THIS IS MY <br />
+              LEARN ABOUT <br />
               <span
                 className={`element overflow-x-visible text-gray-700 dark:text-gray-500`}
-              >
-                BLOG HEADLINE
-              </span>
+              ></span>
             </h1>
-            <p className="text-primary">This is my science blog</p>
+            <p className="text-primary uppercase">Science is magic!</p>
           </div>
           <div className={`w-[50%] z-[-1] text-right hidden md:block`}>
             {/* <Image
@@ -52,17 +76,20 @@ const Hero = () => {
             /> */}
             {/*  */}
             {/* Temporarily Commented out */}
-            <GlobeDemo
+            {/* <GlobeDemo
               key={(656658328748937 + Math.random).toString()}
               className={`z-[1000] absolute`}
-            />
+            /> */}
             {/*  */}
           </div>
           <div className="block md:hidden">
             <h1 className={`text-2xl font-bold z-[5] dark:text-gray-100`}>
-              THIS IS MY BLOG HEADLINE
+              LEARN ABOUT{" "}
+              <span
+                className={`element2 overflow-x-visible font-nunito uppercase`}
+              ></span>
             </h1>
-            <p className="text-primary">This is my science blog</p>
+            <p className="text-primary uppercase">Science is magic!</p>
             <Image
               src={`illustrations/astronaut.svg`}
               className={`absolute top-[25%] left-[15%] z-[-1] opacity-[0.5]`}
