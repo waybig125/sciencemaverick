@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="aurora-bg2 absolute top-0 left-0 dark:block hidden z-[-2] w-[100vw] h-[100vh]">
         <img src={`bgs/aurora-dark3.svg`} />
       </div>
-      <div>
+      <div className={`overflow-x-hidden w-[100vw] m-0`}>
         <div className="h-[100vh] block z-[-1] bg-transparent w-[100vw]"></div>
         <div
           className={`flex h-[100vh] w-[100vw] z-[-1] fixed top-0 left-0 flex-row justify-center items-center text-center`}
@@ -33,9 +33,11 @@ const Hero = () => {
           <div
             className={`w-[50%] z-[-1] text-left pl-[120px] hidden md:block`}
           >
-            <h1 className={`md:text-6xl text-2xl font-bold`}>
+            <h1 className={`md:text-6xl text-2xl font-bold overflow-x-visible`}>
               THIS IS MY <br />
-              <span className={`element text-gray-700 dark:text-gray-500`}>
+              <span
+                className={`element overflow-x-visible text-gray-700 dark:text-gray-500`}
+              >
                 BLOG HEADLINE
               </span>
             </h1>
@@ -54,10 +56,17 @@ const Hero = () => {
             {/*  */}
           </div>
           <div className="block md:hidden">
-            <h1 className={`text-2xl font-bold z-[5]`}>
+            <h1 className={`text-2xl font-bold z-[5] dark:text-gray-100`}>
               THIS IS MY BLOG HEADLINE
             </h1>
             <p className="text-primary">This is my science blog</p>
+            <Image
+              src={`illustrations/6.svg`}
+              className={`absolute top-[25%] left-[15%] z-[-1] opacity-[0.1]`}
+              style={{ width: "70%", height: "auto" }}
+              width="700"
+              height="1000"
+            />
             {/* <div
               className={`absolute top-0 left-0 w-[100vw] h-[100vh] z-[-1] flex justify-center items-center`}
             >
@@ -71,7 +80,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="bg-white z-[1]">
-        <div className="h-[100vh] w-full">
+        <div className="h-[100vh] w-[100vw]">
           {/* <div class="custom-shape-divider-top-1711362281">
             <svg
               data-name="Layer 1"
@@ -85,9 +94,9 @@ const Hero = () => {
               ></path>
             </svg>
           </div> */}
-          <div className="flex justify-center items-center overflow-hidden p-[100px] bg-white-100 dark:bg-black dark:text-white-100 w-[100vw] h-[100vh]">
+          <div className="flex justify-center items-center overflow-hidden p-[100px] bg-white-100 dark:bg-black dark:text-white-100 w-[100%] h-[100vh]">
             <div
-              className="slide-in-out whitespace-nowrap font-bold text-[100px] md:text-[200px] w-[100vw] h-[100vh]"
+              className="slide-in-out whitespace-nowrap font-bold text-[100px] md:text-[200px] w-[100%] h-[100vh]"
               style={{
                 animationDuration: "8s",
                 animationIterationCount: "infinite",

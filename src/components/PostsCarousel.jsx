@@ -1,16 +1,34 @@
 "use client";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import PostsCarousel from "@/components/PostsCarousel";
+// import PostsCarousel from "@/components/PostsCarousel";
 import Post from "./Post";
 const Posts_Carousel = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Call the function initially to check the width on first render
+    handleResize();
+
+    // Cleanup function to remove the listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: !isMobile ? 3 : 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,

@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 import "./globals.scss";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
+import Head from "next/head";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -16,6 +17,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <body className={roboto.className}>
         <ThemeProvider
           attribute="class"
