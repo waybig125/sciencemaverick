@@ -11,16 +11,13 @@ const Home = () => {
       <div className="p-[20px] block bg-black dark:bg-[url('/bgs/aurora-dark2.svg')] bg-[url('/bgs/aurora-light.svg')] bg-cover bg-no-repeat bg-center bg-fixed w-[100vw] h-[100vh]">
         <MaskContainer
           revealText={
-            <p className="max-w-4xl mx-auto text-slate-700 dark:text-gray-300 text-center  text-4xl font-bold">
-              The first rule of MRR Club is you do not talk about MRR Club. The
-              second rule of MRR Club is you DO NOT talk about MRR Club.
+            <p className="max-w-4xl mx-auto text-slate-700 nunito-font dark:text-gray-300 text-center text-4xl font-bold">
+              SCIENCE IS AMAZING!
             </p>
           }
           className="h-[40rem]"
         >
-          The first rule of <span className="text-red-500">MRR Club</span> is
-          you do not talk about MRR Club. The second rule of MRR Club is you DO
-          NOT talk about <span className="text-red-500">MRR Club</span>.
+          SCIENCE IS <span className="text-slate-700">MAGIC!</span>
         </MaskContainer>
       </div>
       <div className="flex flex-row px-[10px] w-[100vw] h-[100vh] bg-white dark:bg-black">

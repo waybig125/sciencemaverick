@@ -48,18 +48,25 @@ const Hero = () => {
               width="700"
               height="1000"
             /> */}
-            <GlobeDemo key={(656658328748937 + Math.random).toString()} />
+            {/*  */}
+            {/* Temporarily Commented out */}
+            {/* <GlobeDemo key={(656658328748937 + Math.random).toString()} /> */}
+            {/*  */}
           </div>
           <div className="block md:hidden">
-            <h1 className={`text-3xl font-bold`}>THIS IS MY BLOG HEADLINE</h1>
+            <h1 className={`text-2xl font-bold z-[5]`}>
+              THIS IS MY BLOG HEADLINE
+            </h1>
             <p className="text-primary">This is my science blog</p>
-            <div
-              className={`fixed top-0 left-0 w-[100vw] h-[100vh] z-[4] flex justify-center items-center`}
+            {/* <div
+              className={`absolute top-0 left-0 w-[100vw] h-[100vh] z-[-1] flex justify-center items-center`}
             >
-              <div className={`p-[30px]`}>
+              <div
+                className={`flex w-[100%] h-[100vh] align-center items-center justify-center`}
+              >
                 <GlobeDemo key={(2172361784672386 + Math.random).toString()} />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -78,7 +85,7 @@ const Hero = () => {
               ></path>
             </svg>
           </div> */}
-          <div className="overflow-hidden p-[100px] bg-white-100 dark:bg-black dark:text-white-100 w-[100vw] h-[100vh]">
+          <div className="flex justify-center items-center overflow-hidden p-[100px] bg-white-100 dark:bg-black dark:text-white-100 w-[100vw] h-[100vh]">
             <div
               className="slide-in-out whitespace-nowrap font-bold text-[100px] md:text-[200px] w-[100vw] h-[100vh]"
               style={{
