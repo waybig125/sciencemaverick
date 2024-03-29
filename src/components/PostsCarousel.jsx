@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import PostsCarousel from "@/components/PostsCarousel";
 import Post from "./Post";
-const Posts_Carousel = () => {
+const Posts_Carousel = ({ posts }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -37,26 +37,15 @@ const Posts_Carousel = () => {
     <>
       <div className={`m-[50px] bg-gray-300 dark:bg-white rounded-lg`}>
         <Slider {...settings}>
-          <Post
-            title="Dummy Post4"
-            excerpt="Some dummy excerpt"
-            date={new Date()}
-          />
-          <Post
-            title="Dummy Post5"
-            excerpt="Some dummy excerpt"
-            date={new Date()}
-          />
-          <Post
-            title="Dummy Post6"
-            excerpt="Some dummy excerpt"
-            date={new Date()}
-          />
-          <Post
-            title="Dummy Post7"
-            excerpt="Some dummy excerpt"
-            date={new Date()}
-          />
+          {!posts && "You must add at least one Post to your Bucket"}
+          {posts &&
+            posts.map((post) => {
+              return (
+                <span key={post.id} className={`smd:m-[30px]`}>
+                  <Post post={post} carousel={true} />
+                </span>
+              );
+            })}
         </Slider>
       </div>
     </>

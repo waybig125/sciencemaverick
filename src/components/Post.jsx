@@ -1,4 +1,5 @@
-"use client";
+import Link from "next/link";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import {
   Card,
@@ -7,30 +8,77 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "./ui/card";
+import helpers from "@/helpers";
+// import ReactHtmlParser from "react-html-parser";
 
-const Post = ({ title, featuredImage = "", excerpt, date }) => {
+const Post = ({ post, carousel = false }) => {
+  // function HtmlToTextComponent({ html }) {
+  //   const text = ReactHtmlParser(html, {
+  //     transform: (node) => {
+  //       if (node.type === "text") return node.data;
+  //     },
+  //   }).join("");
+
+  //   return <p>{text}</p>;
+  // }
+  // console.log(post);
   return (
     <>
-      <div className="w-[90%] lg:w-[80%] text-black dark:text-white m-[5%] lg:m-[30px] pb-[10px]">
-        <Card>
-          {featuredImage != "" && (
-            <Image
-              src={featuredImage}
-              style={{ width: "70%", height: "auto" }}
-              width="700"
-              height="1000"
-            />
+      <div className={`text-black dark:text-white rounded-lg min-h-[80vh]`}>
+        <Card
+          className={`rounded-lg min-h-[80vh] ${carousel && "smd:h-[60vh]"}`}
+        >
+          {post.metadata.hero.imgix_url && (
+            <Link href={`/posts/${post.slug}`}>
+              <AspectRatio ratio={16 / 9}>
+                <Image
+                  // width={2800}
+                  // height={400}
+                  fill
+                  className="mb-5 h-[400px] w-full rounded-lg rounded-b-none bg-no-repeat object-cover object-center transition-transform duration-200 ease-out hover:scale-[1.02]"
+                  src={`${post.metadata.hero.imgix_url}`}
+                  priority
+                  alt={post.title}
+                  placeholder="blur"
+                  blurDataURL={`${post.metadata.hero.imgix_url}?auto=format,compress&q=1&blur=500&w=2`}
+                />
+              </AspectRatio>
+            </Link>
           )}
           <CardHeader>
-            <CardTitle>{title}</CardTitle>
-            <CardDescription>{excerpt}</CardDescription>
+            <CardTitle>
+              <h2 className="mb-2 text-md font-semibold line-clamp-2 overflow-hidden">
+                <Link href={`/posts/${post.slug}`} title={post.title}>
+                  {post.title}
+                </Link>
+              </h2>
+            </CardTitle>
+            <CardDescription>
+              <div
+                className="text-zinc-500 dark:text-zinc-300 line-clamp-4"
+                title={post.metadata.teaser}
+                dangerouslySetInnerHTML={{ __html: post.metadata.teaser ?? "" }}
+              />
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <Link href={`/posts/${post.slug}`}>
+              <div className="flex items-center space-x-2">
+                <span>Read more</span>
+              </div>
+            </Link>
           </CardContent>
           <CardFooter>
-            <p>{date.toString()}</p>
+            <div className="font-nunito font-medium text-slate-700 dark:text-gray-300 hover:text-black dark:hover:text-white">
+              <div className="text-xs block">
+                Published on{" "}
+                {helpers.stringToFriendlyDate(post.metadata.published_date)}
+              </div>
+              <div className="hidden select-none justify-end space-x-2 md:flex">
+                {/* post.metadata.category */}
+              </div>
+            </div>
           </CardFooter>
         </Card>
       </div>

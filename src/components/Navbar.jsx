@@ -12,7 +12,7 @@ const Navbar = () => {
     visible: { opacity: 1 },
   };
   return (
-    <header className={`overflow-hidden`}>
+    <header className={`overflow-hidden z-[999]`}>
       <p className="flex flex-row items-center justify-center gap-2 bg-black text-white uppercase font-bold text-center inset-0 py-[10px]">
         We stand with Palestine <img src="Palestine.svg" width="20" />
       </p>

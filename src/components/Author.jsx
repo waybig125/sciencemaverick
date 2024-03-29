@@ -7,7 +7,7 @@ const Author = () => {
       <div
         className={`flex author-box flex-row h-[90%] w-[100%] bg-gray-300 dark:bg-black rounded-md m-[10px] md:m-[50px]`}
       >
-        <div className={`md:p-[50px] p-[10px] lg:flex-1`}>
+        <div className={`md:p-[50px] p-[20px] lg:flex-1`}>
           <h2 className="font-medium text-3xl text-black dark:text-white">
             About the Author
           </h2>
