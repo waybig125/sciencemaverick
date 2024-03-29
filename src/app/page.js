@@ -3,11 +3,27 @@ import Post from "@/components/Post";
 import Hero from "@/components/Hero";
 import Posts_Carousel from "@/components/PostsCarousel";
 import { MaskContainer } from "@/components/ui/svg-masked-effect-custom";
+import PostCard from "@/components/PostCard";
+import { getAllPosts } from "../lib/cosmic";
 
-const Home = () => {
+const Home = async () => {
+  const posts = await getAllPosts();
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
+
+      <main className="mx-auto mt-4 w-full max-w-3xl flex-col space-y-16 px-4 lg:px-0">
+        {!posts && "You must add at least one Post to your Bucket"}
+        {posts &&
+          posts.map((post) => {
+            return (
+              <div key={post.id}>
+                <PostCard post={post} />
+              </div>
+            );
+          })}
+      </main>
+
       <div className="bg-white dark:bg-black">
         <div className="p-[20px] hidden md:block bg-black dark:bg-[url('/bgs/aurora-dark3.svg')] bg-[url('/bgs/aurora-light.svg')] bg-cover bg-no-repeat bg-center bg-fixed w-[100vw] h-[100vh]">
           <MaskContainer
