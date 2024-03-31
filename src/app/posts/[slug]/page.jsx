@@ -11,12 +11,16 @@ export async function generateMetadata({ params }) {
   return {
     title: `${post.title}`,
     description: `${post.metadata.teaser}`,
+    keywords: `${post.metadata.keywords}`,
   };
 }
 
 const PostForBlog = async ({ params }) => {
   const post = await getPost(params);
-  const suggestedPosts = await getSimilarPosts(params);
+  const suggestedPosts = await getSimilarPosts(
+    params,
+    post.metadata.categories.replace(" ", "").split(","),
+  );
   // console.log(post);
   // console.log(suggestedPosts);
   return (

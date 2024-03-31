@@ -62,10 +62,12 @@ const Post = ({ post, carousel = false }) => {
               />
               <div className="text-sm space-x-2 py-[5px]">
                 {post.metadata.categories
+                  .replace(" ", "")
                   .split(",")
                   .map(
                     (category, idx) =>
-                      category != "" && (
+                      category != "" &&
+                      category != " " && (
                         <Badge key={`badge-category-${idx}`}>{category}</Badge>
                       ),
                   )}

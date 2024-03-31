@@ -2,7 +2,23 @@ import helpers from "@/helpers";
 import { AspectRatio } from "./ui/aspect-ratio";
 import Image from "next/image";
 import { Badge } from "./ui/badge";
+import Ad from "@/components/BannerAd";
 const BlogPost = ({ post }) => {
+  const content = post.metadata.content.split("</p>");
+  let htmlContent = "";
+  content.forEach((section, index) => {
+    if (index != content.length - 1 && index % 2 == 0) {
+      htmlContent += section + `</p><br />${Ad}<br />`;
+    } else {
+      htmlContent += section;
+    }
+  });
+
+  //   const htmlContent = post.metadata.content.replace(
+  //     "</p>",
+  //     `</p><br />${Ad}<br />`,
+  //   );
+
   return (
     <>
       <div className="flex max-h-[80vh] min-h-[50vh] w-[100%] justify-center items-center text-center">
@@ -45,11 +61,23 @@ const BlogPost = ({ post }) => {
         </div>
         <div className="text-sm pb-[25px] space-x-2">
           {post.metadata.categories
+            .replace(" ", "")
             .split(",")
             .map(
               (category, idx) =>
-                category != "" && (
+                category != "" &&
+                category != " " && (
                   <Badge key={`badge-category-${idx}`}>{category}</Badge>
+                ),
+            )}
+          {post.metadata.sub_categories
+            .replace(" ", "")
+            .split(",")
+            .map(
+              (sub_category, idx) =>
+                sub_category != "" &&
+                sub_category != " " && (
+                  <Badge key={`badge-category-${idx}`}>{sub_category}</Badge>
                 ),
             )}
         </div>
@@ -78,8 +106,21 @@ const BlogPost = ({ post }) => {
             <div className="text-[40px] leading-12 py-[20px]">{post.title}</div>
             <div
               className="text-zinc-500 dark:text-zinc-300"
-              dangerouslySetInnerHTML={{ __html: post.metadata.content ?? "" }}
+              dangerouslySetInnerHTML={{ __html: htmlContent ?? "" }}
             />
+          </div>
+
+          <div className="text-sm pt-[150px]">Keywords</div>
+          <div className="text-sm pb-[25px] space-x-2">
+            {post.metadata.keywords
+              .split(",")
+              .map(
+                (keyword, idx) =>
+                  keyword != "" &&
+                  keyword != " " && (
+                    <Badge key={`badge-category-${idx}`}>{keyword}</Badge>
+                  ),
+              )}
           </div>
         </div>
       </div>

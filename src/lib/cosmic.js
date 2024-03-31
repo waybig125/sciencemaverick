@@ -10,7 +10,22 @@ const cosmic = createBucketClient({
 
 // lib/cosmic.js
 
-export async function getSimilarPosts(params) {
+export async function getSimilarPosts(params, categories_array) {
+  let categories;
+  console.log(categories_array);
+  // if (
+  //   categories_array.length == 1 ||
+  //   categories_array[1] == " " ||
+  //   categories_array[1] == ""
+  // ) {
+  //   categories = categories_array[0].replace(",", "");
+  //   categories_array.pop();
+  //   console.log(categories);
+  // }
+  categories = categories_array.join("|").replace(" ", "");
+  console.log(categories);
+  console.log(categories_array);
+
   try {
     const data = await Promise.resolve(
       cosmic.objects
@@ -18,6 +33,10 @@ export async function getSimilarPosts(params) {
           type: "posts",
           slug: {
             $ne: params.slug,
+          },
+          "metadata.categories": {
+            $regex: categories,
+            $options: "ig",
           },
         })
         .props(
@@ -27,6 +46,7 @@ export async function getSimilarPosts(params) {
         .depth(1)
         .limit(12),
     );
+    console.log(data);
     const posts = await data.objects;
     return Promise.resolve(posts);
   } catch (error) {
