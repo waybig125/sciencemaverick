@@ -27,7 +27,7 @@ const Post = ({ post, carousel = false }) => {
     <>
       <div className={`text-black dark:text-white rounded-lg min-h-[80vh]`}>
         <Card
-          className={`rounded-lg min-h-[80vh] ${carousel && "smd:h-[60vh]"}`}
+          className={`rounded-lg min-h-[80vh] ${carousel && "smd:h-[80vh]"}`}
         >
           {post.metadata.hero.imgix_url && (
             <Link href={`/posts/${post.slug}`}>
@@ -57,7 +57,6 @@ const Post = ({ post, carousel = false }) => {
             <CardDescription>
               <div
                 className="text-zinc-500 dark:text-zinc-300 line-clamp-4"
-                title={post.metadata.teaser}
                 dangerouslySetInnerHTML={{ __html: post.metadata.teaser ?? "" }}
               />
             </CardDescription>

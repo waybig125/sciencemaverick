@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { ThemeToggler } from "./ThemeToggler";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -14,21 +15,23 @@ const Navbar = () => {
   return (
     <header className={`overflow-hidden z-[999]`}>
       <p className="flex flex-row items-center justify-center gap-2 bg-black text-white uppercase font-bold text-center inset-0 py-[10px]">
-        We stand with Palestine <img src="Palestine.svg" width="20" />
+        We stand with Palestine <img src="../../../Palestine.svg" width="20" />
       </p>
       <nav
         className={`my-[25px] absolute right-0 z-[3] top-0 p-[20px] flex flex-row w-full h-[100px] md:justify-center gap-5 justify-between md:space-between items-center`}
       >
-        <img
-          src="logos/1.svg"
+        <Image
+          src="../../../logos/1.svg"
           alt="Science Maverick Logo"
           width="50"
+          height="50"
           className="hidden dark:block"
         />
-        <img
-          src="logos/2.svg"
+        <Image
+          src="../../../logos/2.svg"
           alt="Science Maverick Logo"
           width="50"
+          height="50"
           className="block dark:hidden"
         />
         <ul className="hidden md:flex flex-row justify-center space-between items-center gap-3 md:gap-10 text-xs md:text-lg">
@@ -67,7 +70,7 @@ const Navbar = () => {
         {!show && (
           <Menu
             size={24}
-            className={`block md:hidden z-[100] absolute top-[33px] right-[30px] text-white`}
+            className={`block md:hidden z-[100] absolute top-[33px] right-[30px] text-black dark:text-white`}
             onClick={() => setShow(!show)}
           />
         )}

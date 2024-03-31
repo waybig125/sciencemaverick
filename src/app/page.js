@@ -5,7 +5,10 @@ import Hero from "@/components/Hero";
 // import Posts_Carousel from "@/components/PostsCarousel";
 import { MaskContainer } from "@/components/ui/svg-masked-effect-custom";
 // import PostCard from "@/components/PostCard";
-import { getThreePosts, getTwelvePosts } from "../lib/cosmic";
+import {
+  // getThreePosts,
+  getTwelvePosts,
+} from "../lib/cosmic";
 import {
   Carousel,
   CarouselContent,
@@ -15,8 +18,9 @@ import {
 } from "@/components/ui/carousel";
 
 const Home = async () => {
-  const threePosts = await getThreePosts();
+  // const threePosts = await getThreePosts();
   const twelvePosts = await getTwelvePosts();
+  const threePosts = twelvePosts.splice(3, 6);
   return (
     <>
       <Hero />
@@ -70,7 +74,7 @@ const Home = async () => {
           </div>
         </div>
         {/* bg-[url('/bgs/aurora-dark2.svg')] dark:bg-[url('/bgs/aurora-light.svg')] bg-cover bg-no-repeat bg-center bg-fixed */}
-        <div className="w-[100vw] min-h-[300vh] bg-white dark:bg-black my-0">
+        <div className="w-[100vw] min-h-[400vh] bg-white dark:bg-black my-0">
           {/* <div className="block lg:flex lg:flex-row px-[10px] lg:px-[30px] w-[100%] min-h-[100vh] my-[100px] md:my-0"> */}
           <div className="p-[20px] smd:p-[100px] grid grid-cols-1 xmd:grid-cols-3 md:grid-cols-2 gap-5 w-[100%] min-h-[100vh] my-[100px] md:my-0">
             {!threePosts && "You must add at least one Post to your Bucket"}
@@ -106,7 +110,7 @@ const Home = async () => {
           </div>
           <div className="bg-white dark:bg-black">
             {/* <Posts_Carousel posts={twelvePosts} /> */}
-            <div className="md:flex justify-center items-center align-center md:w-full md:h-full">
+            <div className="">
               <Carousel
                 opts={{
                   align: "start",
@@ -122,9 +126,9 @@ const Home = async () => {
                       return (
                         <CarouselItem
                           key={post.id}
-                          className="md:basis-1/2 lg:basis-1/3"
+                          className="sm:basis-full md:basis-1/2 xmd:basis-1/2 lg:basis-1/3"
                         >
-                          <span className={`smd:m-[30px]`}>
+                          <span className={``}>
                             <Post post={post} carousel={true} />
                           </span>
                         </CarouselItem>
