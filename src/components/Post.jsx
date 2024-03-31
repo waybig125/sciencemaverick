@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import helpers from "@/helpers";
+import { Badge } from "./ui/badge";
 // import ReactHtmlParser from "react-html-parser";
 
 const Post = ({ post, carousel = false }) => {
@@ -59,6 +60,33 @@ const Post = ({ post, carousel = false }) => {
                 className="text-zinc-500 dark:text-zinc-300 line-clamp-4"
                 dangerouslySetInnerHTML={{ __html: post.metadata.teaser ?? "" }}
               />
+              <div className="text-sm space-x-2 py-[5px]">
+                {post.metadata.categories
+                  .split(",")
+                  .map(
+                    (category, idx) =>
+                      category != "" && (
+                        <Badge key={`badge-category-${idx}`}>{category}</Badge>
+                      ),
+                  )}
+              </div>
+              <div className="text-sm mb-[-10px]">
+                Written by Science Maverick
+                <Image
+                  src="../../../logos/1.svg"
+                  alt="Science Maverick Logo"
+                  width="50"
+                  height="50"
+                  className="hidden dark:inline"
+                />
+                <Image
+                  src="../../../logos/2.svg"
+                  alt="Science Maverick Logo"
+                  width="50"
+                  height="50"
+                  className="inline dark:hidden"
+                />
+              </div>
             </CardDescription>
           </CardHeader>
           <CardContent>

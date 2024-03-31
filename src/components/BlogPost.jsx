@@ -1,6 +1,7 @@
 import helpers from "@/helpers";
 import { AspectRatio } from "./ui/aspect-ratio";
 import Image from "next/image";
+import { Badge } from "./ui/badge";
 const BlogPost = ({ post }) => {
   return (
     <>
@@ -41,6 +42,16 @@ const BlogPost = ({ post }) => {
             height="75"
             className="block dark:hidden"
           />
+        </div>
+        <div className="text-sm pb-[25px] space-x-2">
+          {post.metadata.categories
+            .split(",")
+            .map(
+              (category, idx) =>
+                category != "" && (
+                  <Badge key={`badge-category-${idx}`}>{category}</Badge>
+                ),
+            )}
         </div>
         <hr className="bg-zinc-500 dark:bg-white dark:h-[2px]" />
         <br />
