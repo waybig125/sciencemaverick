@@ -35,15 +35,18 @@ const Footer = () => {
                   Pages
                 </h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                  <li class="mb-4">
-                    <a href="https://flowbite.com/" class="hover:underline">
-                      Flowbite
-                    </a>
+                  <li className="mb-4">
+                    <Link href={`/`}>Home</Link>
                   </li>
                   <li>
-                    <a href="https://tailwindcss.com/" class="hover:underline">
-                      Tailwind CSS
-                    </a>
+                    <Link href={`/about`}>About</Link>
+                  </li>
+                  <li>
+                    <Link href={`/contact`}>Contact</Link>
+                  </li>
+                  {/* <li>Categories</li> */}
+                  <li>
+                    <Link href={`/posts`}>Posts</Link>
                   </li>
                 </ul>
               </div>

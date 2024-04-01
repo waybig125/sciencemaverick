@@ -26,7 +26,7 @@ const PostForBlog = async ({ params }) => {
   return (
     <>
       {/* <Meteors number={40} className={`absolute z-[1]`} /> */}
-      <div className="bg-gradient-to-b from-gray-100 to-slate-700 dark:from-black dark:to-slate-700 w-[100vw] pt-[10vh] xmd:pb-[10vh] overflow-hidden flex flex-row">
+      <div className="bg-gradient-to-b from-gray-100 to-black dark:from-black dark:to-slate-700 w-[100vw] pt-[10vh] xmd:pb-[10vh] overflow-hidden flex flex-row">
         <div className="smd:basis-2/12 hidden xmd:flex bg-transparent"></div>
         <div className="basis-full xmd:basis-8/12 block bg-white dark:bg-black xmd:rounded-md p-[50px]">
           <BlogPost post={post} />
