@@ -68,26 +68,28 @@ const Home = async () => {
               <h2 className="text-4xl text-white dark:text-black lime-clamp-1 p-[5px] hidden xmd:block">
                 Latest Posts
               </h2>
-              {twelvePosts[0].metadata.hero.imgix_url && (
-                <Link href={`/posts/${twelvePosts[0].slug}`}>
-                  <AspectRatio ratio={16 / 9}>
-                    <Image
-                      // width={2800}
-                      // height={400}
-                      fill
-                      className="rounded-md"
-                      src={`${twelvePosts[0].metadata.hero.imgix_url}`}
-                      priority
-                      alt={twelvePosts[0].title}
-                      placeholder="blur"
-                      blurDataURL={`${twelvePosts[0].metadata.hero.imgix_url}?auto=format,compress&q=1&blur=500&w=2`}
-                    />
-                  </AspectRatio>
-                  <h2 className="text-md text-white dark:text-black lime-clamp-1 p-[5px]">
-                    {twelvePosts[0].title}
-                  </h2>
-                </Link>
-              )}
+              {twelvePosts[0] &&
+                twelvePosts[0].metadata &&
+                twelvePosts[0].metadata.hero.imgix_url && (
+                  <Link href={`/posts/${twelvePosts[0].slug}`}>
+                    <AspectRatio ratio={16 / 9}>
+                      <Image
+                        // width={2800}
+                        // height={400}
+                        fill
+                        className="rounded-md"
+                        src={`${twelvePosts[0] && twelvePosts[0].metadata && twelvePosts[0].metadata.hero.imgix_url}`}
+                        priority
+                        alt={twelvePosts[0].title}
+                        placeholder="blur"
+                        blurDataURL={`${twelvePosts[0] && twelvePosts[0].metadata && twelvePosts[0].metadata.hero.imgix_url}?auto=format,compress&q=1&blur=500&w=2`}
+                      />
+                    </AspectRatio>
+                    <h2 className="text-md text-white dark:text-black lime-clamp-1 p-[5px]">
+                      {twelvePosts[0].title}
+                    </h2>
+                  </Link>
+                )}
             </div>
             {/* <div className="flex w-[100%] rounded-md h-[20%] bg-gray-300 m-[20px]"> */}
             {/* Image */}
@@ -110,11 +112,11 @@ const Home = async () => {
                           <Image
                             fill
                             className="mb-5 h-[400px] w-full rounded-lg bg-no-repeat object-cover object-center"
-                            src={`${post.metadata.hero.imgix_url}`}
+                            src={`${twelvePosts[0] && twelvePosts[0].metadata && post.metadata.hero.imgix_url}`}
                             priority
                             alt={post.title}
                             placeholder="blur"
-                            blurDataURL={`${post.metadata.hero.imgix_url}?auto=format,compress&q=1&blur=500&w=2`}
+                            blurDataURL={`${twelvePosts[0] && twelvePosts[0].metadata && post.metadata.hero.imgix_url}?auto=format,compress&q=1&blur=500&w=2`}
                           />
                         </AspectRatio>
                       </div>
