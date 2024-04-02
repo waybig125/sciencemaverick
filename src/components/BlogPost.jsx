@@ -121,8 +121,8 @@ const BlogPost = async ({ post }) => {
             </article>
           </div>
 
-          <div className="text-sm pt-[150px]">Keywords</div>
-          <div className="text-sm pb-[25px] space-x-2">
+          <div className="text-sm pt-[150px] mb-[-30px]">Keywords</div>
+          <div className="text-sm mt-[-30px] pb-[25px] space-x-2 space-y-2">
             {post.metadata.keywords
               .split(",")
               .map(
