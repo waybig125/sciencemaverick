@@ -24,7 +24,7 @@ import { Meteors } from "@/components/meteors";
 const Home = async () => {
   // const threePosts = await getThreePosts();
   const twelvePosts = await getTwelvePosts();
-  const threePosts = twelvePosts.slice(3, 7);
+  const threePosts = await twelvePosts.slice(3, 7);
   return (
     <>
       <Hero />
