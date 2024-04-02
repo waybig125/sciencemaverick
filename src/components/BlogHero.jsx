@@ -26,7 +26,7 @@ const BlogHero = () => {
       <Meteors number={40} className={`absolute z-[1]`} />
       <div className="flex justify-center pb-[120px] md:pb-[60px] items-center align-center text-center h-[100vh] w-[100vw] p-[5px] bg-gradient-to-b from-gray-100 to-slate-700 dark:from-black dark:to-slate-700">
         <div
-          className={`line-clamp-1 typed-content text-2xl smd:text-3xl md:text-3xl xmd:text-3xl lg:text-4xl font-bold nunito-font text-center`}
+          className={`line-clamp-1 typed-content text-3xl smd:text-6xl md:text-6xl xmd:text-6xl lg:text-8xl font-extrabold tracking-tighter text-center`}
         ></div>
       </div>
     </div>

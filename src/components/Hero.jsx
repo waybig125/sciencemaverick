@@ -2,7 +2,8 @@
 import Image from "next/image";
 import { Typed } from "react-typed";
 import { useEffect } from "react";
-import { GlobeDemo } from "./Globe";
+import { GlobeDemo as Globe } from "./Globe";
+import { Meteors } from "./meteors";
 const Hero = () => {
   useEffect(() => {
     const typed = new Typed(".element", {
@@ -46,18 +47,19 @@ const Hero = () => {
   return (
     <>
       <div className="aurora-bg1 fixed top-0 left-0 dark:hidden block z-[-2] w-[100vw] h-[100vh]">
-        <img src={`bgs/aurora-light.svg`} />
+        <Image src={`bgs/aurora-light.svg`} fill alt="bg image" />
       </div>
       <div className="aurora-bg2 fixed top-0 left-0 dark:block hidden z-[-2] w-[100vw] h-[100vh]">
-        <img src={`bgs/aurora-dark3.svg`} />
+        <Image src={`bgs/aurora-dark3.svg`} fill alt="bg image" />
       </div>
       <div className={`overflow-x-hidden w-[100vw] m-0 pt-[100vh]`}>
+        <Meteors number={40} className={`absolute z-[1]`} />
         {/* <div className="h-[100vh] block z-[-9] bg-transparent w-[100vw]"></div> */}
         <div
           className={`flex h-[100vh] w-[100vw] z-[-1] absolute top-0 left-0 flex-row justify-center items-center text-center`}
         >
           <div
-            className={`w-[50%] z-[-1] text-left pl-[120px] hidden md:block`}
+            className={`w-[50%] z-[-1] text-left pl-[120px] hidden md:block font-extrabold tracking-tighter`}
           >
             <h1 className={`md:text-6xl text-2xl font-bold overflow-x-visible`}>
               LEARN ABOUT <br />
@@ -65,7 +67,9 @@ const Hero = () => {
                 className={`element overflow-x-visible text-gray-700 dark:text-gray-500`}
               ></span>
             </h1>
-            <p className="text-primary uppercase">Science is magic!</p>
+            <p className="text-primary uppercase font-medium">
+              Science is magic!
+            </p>
           </div>
           <div className={`w-[50%] z-[-1] text-right hidden md:block`}>
             {/* <Image
@@ -76,27 +80,29 @@ const Hero = () => {
             /> */}
             {/*  */}
             {/* Temporarily Commented out */}
-            {/* <GlobeDemo
+            {/* <Globe
               key={(656658328748937 + Math.random).toString()}
               className={`z-[1000] absolute`}
             /> */}
             {/*  */}
           </div>
           <div className="block md:hidden">
-            <h1 className={`text-2xl font-bold z-[5] dark:text-gray-100`}>
+            <h1
+              className={`text-xl smd:text-4xl z-[5] dark:text-gray-100 font-bold tracking-tighter`}
+            >
               LEARN ABOUT{" "}
-              <span
-                className={`element2 overflow-x-visible font-nunito uppercase`}
-              ></span>
+              <span className={`element2 overflow-x-visible uppercase`}></span>
             </h1>
-            <p className="text-primary uppercase">Science is magic!</p>
-            <Image
+            <p className="text-sm text-slate-700 dark:text-primary uppercase">
+              Science is magic!
+            </p>
+            {/* <Image
               src={`illustrations/astronaut.svg`}
               className={`absolute top-[25%] left-[15%] z-[-1] opacity-[0.5]`}
               style={{ width: "70%", height: "auto" }}
               width="700"
               height="1000"
-            />
+            /> */}
             {/* <div
               className={`absolute top-0 left-0 w-[100vw] h-[100vh] z-[-1] flex justify-center items-center`}
             >

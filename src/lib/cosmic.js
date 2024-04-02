@@ -10,7 +10,33 @@ const cosmic = createBucketClient({
 
 // lib/cosmic.js
 
-export async function getSimilarPosts(params, categories_array) {
+export async function getNextSlug(currentPostId) {
+  // console.log(currentPostId);
+  try {
+    // Get all posts
+    const data = await Promise.resolve(
+      cosmic.objects
+        .findOne({
+          type: "posts",
+        })
+        .props("slug")
+        .after(currentPostId),
+    );
+    const post = await data.object;
+    // console.log(post);
+    return Promise.resolve(post);
+  } catch (error) {
+    console.log("Oof", error);
+  }
+  return Promise.resolve([]);
+}
+
+export async function getSimilarPosts(
+  params,
+  categories_array,
+  sub_categories,
+  keywords,
+) {
   let categories;
   console.log(categories_array);
   // if (
@@ -34,10 +60,26 @@ export async function getSimilarPosts(params, categories_array) {
           slug: {
             $ne: params.slug,
           },
-          "metadata.categories": {
-            $regex: categories,
-            $options: "ig",
-          },
+          $or: [
+            {
+              "metadata.categories": {
+                $regex: categories,
+                $options: "gi",
+              },
+            },
+            {
+              "metadata.keywords": {
+                $regex: keywords,
+                $options: "gi",
+              },
+            },
+            {
+              "metadata.sub_categories": {
+                $regex: sub_categories,
+                $options: "gi",
+              },
+            },
+          ],
         })
         .props(
           "id,type,slug,title,metadata.hero,metadata.teaser,metadata.published_date,metadata.categories,created_at",
@@ -64,7 +106,7 @@ export async function getPost(params) {
           type: "posts",
           slug: params.slug,
         })
-        .props("slug, title, metadata"),
+        .props("id, slug, title, metadata"),
     );
     const post = await data.object;
     return Promise.resolve(post);

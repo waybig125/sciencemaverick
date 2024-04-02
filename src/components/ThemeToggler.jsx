@@ -12,7 +12,16 @@ import {
 import { Button } from "./ui/button";
 
 export function ThemeToggler() {
-  const { setTheme } = useTheme();
+  // if (onClickEvent == undefined || onClickEvent == null) {
+  //   onClickEvent = function () {
+  //     console.log("No input received, maybe using desktop mode...");
+  //   };
+  // }
+  const { setTheme, theme } = useTheme();
+
+  const setThemeFunction = (theme) => {
+    setTheme(theme);
+  };
 
   return (
     <DropdownMenu>
@@ -24,15 +33,15 @@ export function ThemeToggler() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem onClick={() => setThemeFunction("light")}>
           Light
           <Sun />
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem onClick={() => setThemeFunction("dark")}>
           Dark
           <Moon />
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem onClick={() => setThemeFunction("system")}>
           System
           <Settings />
         </DropdownMenuItem>

@@ -12,23 +12,17 @@ const Author = () => {
             About the Author
           </h2>
           <p className="text-gray-700 text-sm md:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-            aliquid optio, consectetur facilis et temporibus enim vitae repellat
-            accusamus adipisci, odit sed recusandae similique error placeat
-            eligendi voluptatem dolor reiciendis? Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Explicabo aliquid optio, consectetur
-            facilis et temporibus enim vitae repellat accusamus adipisci, odit
-            sed recusandae similique error placeat eligendi voluptatem dolor
-            reiciendis? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Explicabo aliquid optio, consectetur facilis et temporibus enim
-            vitae repellat accusamus adipisci, odit sed recusandae similique
-            error placeat eligendi voluptatem dolor reiciendis?
+            {`Calling all science seekers! I'm Science Maverick, aka Muhammad
+            Areeb. This blog isn't your average science show. We push
+            boundaries, explore the wild side, and question everything. Buckle
+            up and get ready for a mind-blowing adventure!`}
           </p>
         </div>
         <div className={``}>
           <Image
             src={`illustrations/3.svg`}
             className={`hidden mxl:block`}
+            alt="Illustration"
             width="300"
             height="300"
             style={{ width: "100%", height: "auto" }}

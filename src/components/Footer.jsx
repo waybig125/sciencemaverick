@@ -3,13 +3,13 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <footer class="bg-white dark:bg-gray-900">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-          <div class="xmd:flex xmd:justify-between">
-            <div class="mb-6 md:mb-0">
+      <footer className="bg-white dark:bg-gray-900">
+        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div className="xmd:flex xmd:justify-between">
+            <div className="mb-6 md:mb-0">
               <Link
                 href="/"
-                class="flex items-center justify-center text-center"
+                className="flex items-center justify-center text-center"
               >
                 <span>
                   <Image
@@ -29,62 +29,85 @@ const Footer = () => {
                 </span>
               </Link>
             </div>
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div className="hidden xmd:block">
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                   Pages
                 </h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                  <li className="mb-4">
-                    <Link href={`/`}>Home</Link>
+                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                  <li>
+                    <Link href={`/`}>
+                      <span className="hover:text-slate-700 dark:hover:text-gray-200">
+                        Home
+                      </span>
+                    </Link>
                   </li>
                   <li>
-                    <Link href={`/about`}>About</Link>
+                    <Link href={`/about`}>
+                      <span className="hover:text-slate-700 dark:hover:text-gray-200">
+                        About
+                      </span>
+                    </Link>
                   </li>
                   <li>
-                    <Link href={`/contact`}>Contact</Link>
+                    <Link href={`/contact`}>
+                      <span className="hover:text-slate-700 dark:hover:text-gray-200">
+                        Contact
+                      </span>
+                    </Link>
                   </li>
                   {/* <li>Categories</li> */}
                   <li>
-                    <Link href={`/posts`}>Posts</Link>
+                    <Link href={`/posts`}>
+                      <span className="hover:text-slate-700 dark:hover:text-gray-200">
+                        Posts
+                      </span>
+                    </Link>
                   </li>
                 </ul>
               </div>
               <div className="hidden xmd:block">
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                   Legal
                 </h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                  <li class="mb-4">
-                    <a href="#" class="hover:underline">
-                      Privacy Policy
-                    </a>
+                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                  <li className="">
+                    <Link href="/privacy-policy">
+                      <span className="hover:text-slate-700 dark:hover:text-gray-200">
+                        Privacy Policy
+                      </span>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" class="hover:underline">
-                      Terms &amp; Conditions
-                    </a>
+                    <Link href="/terms-of-service">
+                      <span
+                        href="/terms-of-service"
+                        className="hover:text-slate-700 dark:hover:text-gray-200"
+                      >
+                        Terms &amp; Conditions
+                      </span>
+                    </Link>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <div class="sm:flex sm:items-center sm:justify-between text-center">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              © 2023 <span class="events-none">Science Maverick</span>. All
+          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <div className="sm:flex sm:items-center sm:justify-between text-center">
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+              © 2023 <span className="events-none">Science Maverick</span>. All
               Rights Reserved.
             </span>
-            <div class="smd:flex mt-4 hidden sm:mt-0">
+            <div className="smd:flex mt-4 hidden sm:mt-0">
               <Link href="https://youtube.com/@Science_maverick">
-                <span class="text-gray-500 hover:text-gray-900 dark:hover:text-white text-sm block">
+                <span className="text-gray-500 hover:text-gray-900 dark:hover:text-white text-sm block">
                   <Image
                     src="../../../youtube.svg"
                     width="50"
                     height="25"
                     alt="YouTube logo"
                   />
-                  <span class="sr-only">YouTube channel</span>
+                  <span className="sr-only">YouTube channel</span>
                 </span>
               </Link>
             </div>

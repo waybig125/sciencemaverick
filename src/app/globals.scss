@@ -140,3 +140,25 @@ body {
 .loadMoreButton {
   grid-column: 1 / -1;
 }
+
+article {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-black dark:text-white;
+  }
+  h1,
+  h2 {
+    @apply tracking-tighter font-extrabold;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+}

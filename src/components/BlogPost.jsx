@@ -3,7 +3,11 @@ import { AspectRatio } from "./ui/aspect-ratio";
 import Image from "next/image";
 import { Badge } from "./ui/badge";
 import Ad from "@/components/BannerAd";
-const BlogPost = ({ post }) => {
+import CopyURLButton from "./CopyUrlToClipboard";
+import { getNextSlug } from "@/lib/cosmic";
+import Link from "next/link";
+const BlogPost = async ({ post }) => {
+  const nextSlug = await getNextSlug(post.id);
   const content = post.metadata.content.split("</p>");
   let htmlContent = "";
   content.forEach((section, index) => {
@@ -29,7 +33,7 @@ const BlogPost = ({ post }) => {
             fill
             className="mb-5 h-[400px] w-full rounded-lg rounded-b-none bg-no-repeat object-cover object-center"
             src={`${post.metadata.hero.imgix_url}`}
-            priority
+            // priority
             alt={post.title}
             placeholder="blur"
             blurDataURL={`${post.metadata.hero.imgix_url}?auto=format,compress&q=1&blur=500&w=2`}
@@ -37,7 +41,9 @@ const BlogPost = ({ post }) => {
         </AspectRatio>
       </div>
       <div className="block min-h-[100vh] pt-[10vh] text-4xl">
-        <div className="font-bold nunito-font">{post.title}</div>
+        <div className="font-extrabold tracking-tighter text-6xl">
+          {post.title}
+        </div>
         <div className="text-sm block">
           Published on{" "}
           {helpers.stringToFriendlyDate(post.metadata.published_date)}
@@ -58,6 +64,9 @@ const BlogPost = ({ post }) => {
             height="75"
             className="block dark:hidden"
           />
+        </div>
+        <div>
+          <CopyURLButton />
         </div>
         <div className="text-sm pb-[25px] space-x-2">
           {post.metadata.categories
@@ -104,10 +113,12 @@ const BlogPost = ({ post }) => {
           </div>
           <div className="text-[16px] leading-8">
             <div className="text-[40px] leading-12 py-[20px]">{post.title}</div>
-            <div
-              className="text-zinc-500 dark:text-zinc-300"
-              dangerouslySetInnerHTML={{ __html: htmlContent ?? "" }}
-            />
+            <article>
+              <div
+                className="text-zinc-500 dark:text-zinc-300"
+                dangerouslySetInnerHTML={{ __html: htmlContent ?? "" }}
+              />
+            </article>
           </div>
 
           <div className="text-sm pt-[150px]">Keywords</div>
@@ -121,6 +132,16 @@ const BlogPost = ({ post }) => {
                     <Badge key={`badge-category-${idx}`}>{keyword}</Badge>
                   ),
               )}
+          </div>
+
+          <div className="flex justify-end">
+            <Link href={`${nextSlug.slug}`}>
+              <span
+                className={`text-sm hover:text-slate-700 dark:hover:text-gray-500`}
+              >
+                Next
+              </span>
+            </Link>
           </div>
         </div>
       </div>

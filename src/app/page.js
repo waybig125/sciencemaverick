@@ -2,6 +2,8 @@
 import Author from "@/components/Author";
 import Post from "@/components/Post";
 import Hero from "@/components/Hero";
+import Link from "next/link";
+import Image from "next/image";
 // import Posts_Carousel from "@/components/PostsCarousel";
 import { MaskContainer } from "@/components/ui/svg-masked-effect-custom";
 // import PostCard from "@/components/PostCard";
@@ -16,11 +18,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Meteors } from "@/components/meteors";
 
 const Home = async () => {
   // const threePosts = await getThreePosts();
   const twelvePosts = await getTwelvePosts();
-  const threePosts = twelvePosts.splice(3, 6);
+  const threePosts = twelvePosts.slice(3, 7);
   return (
     <>
       <Hero />
@@ -38,38 +42,89 @@ const Home = async () => {
         </div>
       </div> */}
       <div className="bg-white dark:bg-black">
-        <div className="p-[20px] hidden md:block bg-black dark:bg-[url('/bgs/aurora-dark3.svg')] bg-[url('/bgs/aurora-light.svg')] bg-cover bg-no-repeat bg-center bg-fixed w-[100vw] h-[100vh]">
+        <div className="p-[20px] hidden md:block bg-black dark:bg-[url('/bgs/aurora-dark3.svg')] bg-[url('/bgs/aurora-light.svg')] bg-cover bg-no-repeat bg-center bg-fixed w-[100vw] h-[100vh] text-6xl smd:text-6xl md:text-6xl xmd:text-6xl lg:text-8xl font-extrabold text-center">
           <MaskContainer
             revealText={
-              <p className="max-w-4xl mx-auto text-slate-700 nunito-font dark:text-gray-300 text-center text-2xl md:text-4xl font-bold">
-                SCIENCE IS AMAZING!
-              </p>
+              <>
+                <Meteors number={10} className={`absolute z-[1]`} />
+                <p className="max-w-4xl mx-auto text-slate-700 dark:text-gray-300 text-cente">
+                  NCSEIC SI RFUDELWNO!
+                </p>
+              </>
             }
             className="h-[40rem]"
           >
-            SCIENCE IS <span className="text-slate-700">MAGICAL!</span>
+            <div
+              className={`text-6xl smd:text-6xl md:text-6xl xmd:text-6xl lg:text-8xl font-extrabold tracking-tighter text-center`}
+            >
+              SCIENCE IS <span className="text-slate-700">WONDERFUL!</span>
+            </div>
           </MaskContainer>
         </div>
 
-        <div className="flex flex-row px-[10px] w-[100vw] h-[100vh] bg-white dark:bg-black">
-          <div className={`block w-[66%] px-[30px]`}>
-            <div className="flex w-[100%] rounded-md h-[40%] bg-black dark:bg-white m-[20px]">
-              {/* Image */}
+        <div className="flex flex-row justify-center items-center algn-center px-[10px] w-[100vw] h-[100vh] bg-white dark:bg-black">
+          <div className={`block basis-full xmd:basis-2/3 px-[30px]`}>
+            <div className="hiddens smd:block w-[100%] rounded-md bg-black dark:bg-white m-[20px]">
+              <h2 className="text-4xl text-white dark:text-black lime-clamp-1 p-[5px] hidden xmd:block">
+                Latest Posts
+              </h2>
+              {twelvePosts[0].metadata.hero.imgix_url && (
+                <Link href={`/posts/${twelvePosts[0].slug}`}>
+                  <AspectRatio ratio={16 / 9}>
+                    <Image
+                      // width={2800}
+                      // height={400}
+                      fill
+                      className="rounded-md"
+                      src={`${twelvePosts[0].metadata.hero.imgix_url}`}
+                      priority
+                      alt={twelvePosts[0].title}
+                      placeholder="blur"
+                      blurDataURL={`${twelvePosts[0].metadata.hero.imgix_url}?auto=format,compress&q=1&blur=500&w=2`}
+                    />
+                  </AspectRatio>
+                  <h2 className="text-md text-white dark:text-black lime-clamp-1 p-[5px]">
+                    {twelvePosts[0].title}
+                  </h2>
+                </Link>
+              )}
             </div>
-            <div className="flex w-[100%] rounded-md h-[20%] bg-gray-300 m-[20px]">
-              {/* Image */}
-            </div>
+            {/* <div className="flex w-[100%] rounded-md h-[20%] bg-gray-300 m-[20px]"> */}
+            {/* Image */}
+            {/* </div> */}
           </div>
 
           <div
-            className={`flex w-[33%] mt-[30px] text-right items-right flex-column`}
+            className={`hidden xmd:flex mt-[30px] text-right items-right flex-column`}
           >
             <ul className={`text-right`}>
-              <li>Post1</li>
-              <li>Post2</li>
-              <li>Post3</li>
-              <li>Post4</li>
-              <li>Post5</li>
+              {twelvePosts.slice(1, 3).map((post, idx) => {
+                return (
+                  <li
+                    className="w-[100%] px-[10px] line-clamp-2 text-left"
+                    key={post.id}
+                  >
+                    <Link href={`/posts/${post.slug}`}>
+                      <div className="w-[50%] text-left">
+                        <AspectRatio ratio={16 / 9}>
+                          <Image
+                            fill
+                            className="mb-5 h-[400px] w-full rounded-lg bg-no-repeat object-cover object-center"
+                            src={`${post.metadata.hero.imgix_url}`}
+                            priority
+                            alt={post.title}
+                            placeholder="blur"
+                            blurDataURL={`${post.metadata.hero.imgix_url}?auto=format,compress&q=1&blur=500&w=2`}
+                          />
+                        </AspectRatio>
+                      </div>
+                      <span className="w-[50%] block font-bold text-md nunito-font">
+                        - {post.title}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
