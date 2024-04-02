@@ -132,7 +132,7 @@ const Hero = () => {
           </div> */}
           <div className="flex justify-center items-center overflow-hidden p-[100px] bg-white-100 dark:bg-black dark:text-white-100 w-[100%] h-[100vh]">
             <div
-              className="slide-in-out whitespace-nowrap font-bold text-[100px] md:text-[200px] w-[100%] h-[100vh]"
+              className="slide-in-out whitespace-nowrap font-bold text-[50px] md:text-[200px] w-[100%] h-[50vh] smd:h-[100vh]"
               style={{
                 animationDuration: "8s",
                 animationIterationCount: "infinite",

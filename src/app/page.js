@@ -41,7 +41,7 @@ const Home = async () => {
             })}
         </div>
       </div> */}
-      <div className="bg-white dark:bg-black">
+      <div className="bg-white dark:bg-black m-0 mb-[-100px] pb-[100px]">
         <div className="p-[20px] hidden md:block bg-black dark:bg-[url('/bgs/aurora-dark3.svg')] bg-[url('/bgs/aurora-light.svg')] bg-cover bg-no-repeat bg-center bg-fixed w-[100vw] h-[100vh] text-6xl smd:text-6xl md:text-6xl xmd:text-6xl lg:text-8xl font-extrabold text-center">
           <MaskContainer
             revealText={
@@ -63,8 +63,10 @@ const Home = async () => {
         </div>
 
         <div className="flex flex-row justify-center items-center algn-center px-[10px] w-[100vw] h-[100vh] bg-white dark:bg-black">
-          <div className={`block basis-full xmd:basis-2/3 px-[30px]`}>
-            <div className="hiddens smd:block w-[100%] rounded-md bg-black dark:bg-white m-[20px]">
+          <div
+            className={`hidden smd:block basis-full xmd:basis-2/3 px-[30px]`}
+          >
+            <div className="hidden smd:block w-[100%] rounded-md bg-black dark:bg-white m-[20px]">
               <h2 className="text-4xl text-white dark:text-black lime-clamp-1 p-[5px] hidden xmd:block">
                 Latest Posts
               </h2>

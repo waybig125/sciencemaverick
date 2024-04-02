@@ -16,7 +16,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="w-[100vw] h-[100vh] flex jusify-center items-center align-center p-[100px] smd:p-[150px]">
+      <div className="w-[100vw] h-[100vh] flex jusify-center items-center align-center p-[20px] smd:p-[150px]">
         {`Greetings, fellow science enthusiasts! I'm your host, Science Maverick, also known in the real world as Muhammad Areeb. Here at the Science Maverick blog, we don't just follow the well-trodden path. We delve into the frontiers of discovery, explore the weird and wonderful, and question everything we think we know.
 
 Prepare for thought-provoking articles, mind-bending theories, and the occasional scientific smackdown (because hey, even geniuses disagree sometimes!). Whether you're a seasoned science buff or just starting your curious journey, this blog is your launchpad to a universe of exploration.
