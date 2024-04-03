@@ -32,7 +32,7 @@ const Navbar = () => {
         />
       </p>
       <nav
-        className={`my-[25px] absolute right-0 z-[3] top-0 p-[20px] flex flex-row w-full h-[100px] md:justify-center gap-5 justify-between md:space-between items-center`}
+        className={`my-[25px] absolute right-0 z-[999] top-0 p-[20px] flex flex-row w-full h-[100px] md:justify-center gap-5 justify-between md:space-between items-center`}
       >
         <Link href={`/`}>
           <Image

@@ -3,6 +3,7 @@ import "./globals.scss";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookiesBanner";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
         >
           <Navbar />
           {children}
+          <CookieBanner />
           <Footer />
         </ThemeProvider>
       </body>
