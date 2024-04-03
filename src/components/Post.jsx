@@ -28,7 +28,7 @@ const Post = ({ post, carousel = false }) => {
     <>
       <div className={`text-black dark:text-white rounded-lg min-h-[80vh]`}>
         <Card
-          className={`rounded-lg sm:min-h-[60vh] smd:min-h-[60vh] md:min-h-[60vh] lg:min-h-[80vh] ${carousel && "lg:h-[80vh]"}`}
+          className={`rounded-lg sm:min-h-[60vh] smd:min-h-[60vh] md:min-h-[60vh] lg:min-h-[80vh]`}
         >
           {post.metadata.hero.imgix_url && (
             <Link href={`/posts/${post.slug}`}>
