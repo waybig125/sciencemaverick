@@ -9,6 +9,9 @@ import Image from "next/image";
  */
 
 export function Contact() {
+  function handleSubmit(eTarget) {
+    console.log(eTarget);
+  }
   return (
     <div className="w-full py-20 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
@@ -22,7 +25,10 @@ export function Contact() {
                 {`We'll`} get back to you as soon as possible.
               </p>
             </div>
-            <div className="grid gap-4">
+            <form
+              className="grid gap-4"
+              onSubmit={(e) => handleSubmit(e.target)}
+            >
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
                 <Input id="name" placeholder="Enter your name" />
@@ -40,7 +46,7 @@ export function Contact() {
                 />
               </div>
               <Button type="submit">Submit</Button>
-            </div>
+            </form>
           </div>
           <div className="smd:flex items-center lg:col-span-5 hidden">
             <Image
