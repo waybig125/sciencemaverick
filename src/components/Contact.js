@@ -1,3 +1,4 @@
+"use client";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,8 +10,25 @@ import Image from "next/image";
  */
 
 export function Contact() {
-  function handleSubmit(eTarget) {
-    console.log(eTarget);
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = e.target[0].value;
+    const email = e.target[1].value;
+    const message = e.target[2].value;
+
+    const fieldValues = {
+      name,
+      email,
+      message,
+    };
+
+    if (name != "" && email != "" && message != "") {
+      //do something
+      //   console.log(fieldValues);
+    }
+
+    // console.log(name, email, message);
+    // console.log(e);
   }
   return (
     <div className="w-full py-20 md:py-24 lg:py-32">
@@ -25,21 +43,24 @@ export function Contact() {
                 {`We'll`} get back to you as soon as possible.
               </p>
             </div>
-            <form
-              className="grid gap-4"
-              onSubmit={(e) => handleSubmit(e.target)}
-            >
+            <form className="grid gap-4" onSubmit={(e) => handleSubmit(e)}>
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
-                <Input id="name" placeholder="Enter your name" />
+                <Input id="name" required placeholder="Enter your name" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" placeholder="Enter your email" type="email" />
+                <Input
+                  id="email"
+                  required
+                  placeholder="Enter your email"
+                  type="email"
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="message">Message</Label>
                 <Textarea
+                  required
                   className="min-h-[100px] resize-none"
                   id="message"
                   placeholder="Enter your message"
