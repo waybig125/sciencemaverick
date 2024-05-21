@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <>
       <div
-        className="flex justify-center items-center fixed top-0 inset-0 left-0 h-[100vh] w-[100vw] bg-black z-[100]"
+        className="flex justify-center items-center fixed top-0 inset-0 left-0 h-[100vh] w-[100vw] bg-black z-[1000]"
         // initial={{ opacity: 1 }}
         // exit={{ opacity: 0 }}
         // transition={{ duration: 0.5 }}

@@ -135,6 +135,7 @@ const BlogPost = async ({ post }) => {
           </div>
 
           <div className="flex justify-end">
+            {nextSlug.slug != null && (
             <Link href={`${nextSlug.slug}`}>
               <span
                 className={`text-sm hover:text-slate-700 dark:hover:text-gray-500`}
@@ -142,6 +143,7 @@ const BlogPost = async ({ post }) => {
                 Next
               </span>
             </Link>
+            )}
           </div>
         </div>
       </div>
