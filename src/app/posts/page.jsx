@@ -7,12 +7,8 @@ const Posts = async () => {
   const firstPostsReq = await getFirstPosts(3);
   const firstPosts = firstPostsReq.objects;
   const total_posts_count = firstPostsReq.total;
-  // ALL posts
   const limit_to_add = firstPostsReq.limit;
   const loadedPosts = limit_to_add;
-  const test = "a";
-
-
   return (
     <>
       <BlogHero />
